@@ -23,10 +23,10 @@ void main() {
   test('returns the failure from the repository on error', () async {
     final repository = MockItemsRepository();
     final useCase = UseCaseFactories.createSearchItemsUseCase(itemsRepository: repository);
-    when(() => repository.searchItems(query: 'atcham')).thenAnswer((_) async => const Failed(NetworkError()));
+    when(() => repository.searchItems(query: 'atcham')).thenAnswer((_) async => const Error(NetworkError()));
 
     final searchResult = await useCase(query: 'atcham');
 
-    expect(searchResult, const Failed<DBError, List<Item>>(NetworkError()));
+    expect(searchResult, const Error<DBError, List<Item>>(NetworkError()));
   });
 }

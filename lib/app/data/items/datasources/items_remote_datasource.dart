@@ -10,11 +10,11 @@ class ItemsRemoteDatasource {
   final DBHttpClient _httpClient;
 
   Future<Result<DBError, List<Item>>> searchItems({required String query, required int limit}) async {
-    final searchResponse = await _httpClient.request(SearchItemsRequest(query: query, limit: limit));
-
-    return switch (searchResponse) {
-      Success(value: final rawItems) => Success((rawItems as List<dynamic>).cast<Map<String, dynamic>>().map(Item.fromJson).toList()),
-      Failed(failure: final failure) => Failed(failure),
-    };
+    final responseResult = await _httpClient.request(SearchItemsRequest(query: query, limit: limit));
+    return responseResult.when(Error.new, (response) {
+      final data = response['data'] as List<dynamic>;
+      final items = data.cast<Map<String, dynamic>>().map(Item.fromJson).toList();
+      return Success(items);
+    });
   }
 }

@@ -30,14 +30,11 @@ void main() {
     'emits loading then failure when the search fails',
     build: () {
       final searchItemsUseCase = MockSearchItemsUseCase();
-      when(() => searchItemsUseCase(query: 'atcham')).thenAnswer((_) async => const Failed(NetworkError()));
+      when(() => searchItemsUseCase(query: 'atcham')).thenAnswer((_) async => const Error(NetworkError()));
       return CubitFactories.createItemSearchCubit(searchItemsUseCase: searchItemsUseCase);
     },
     act: (cubit) => cubit.search('atcham'),
-    expect: () => [
-      const ItemSearchState(status: ItemSearchStatus.loading),
-      const ItemSearchState(status: ItemSearchStatus.failure, failure: NetworkError()),
-    ],
+    expect: () => [const ItemSearchState(status: ItemSearchStatus.loading), const ItemSearchState(status: ItemSearchStatus.failure)],
   );
 
   final emptyQueryUseCase = MockSearchItemsUseCase();

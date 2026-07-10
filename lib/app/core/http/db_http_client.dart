@@ -11,7 +11,7 @@ class DBHttpClient {
   final Dio _dio;
   final AppLogger _logger;
 
-  Future<Result<DBError, dynamic>> request(DBBaseHttpRequest request) async {
+  Future<Result<DBError, Map<String, dynamic>>> request(DBBaseHttpRequest request) async {
     try {
       final response = await _dio.request<dynamic>(
         request.path,
@@ -19,13 +19,14 @@ class DBHttpClient {
         queryParameters: request.queryParameters,
         options: Options(method: request.method.methodName, headers: request.headers),
       );
-      return Success(response.data);
+      final responseBody = response.data;
+      return Success(responseBody is Map<String, dynamic> ? responseBody : {'data': responseBody});
     } on DioException catch (error, stackTrace) {
       _logger.error('${request.method.methodName} ${request.path} failed', error, stackTrace);
-      return Failed(_mapDioException(error));
+      return Error(_mapDioException(error));
     } catch (error, stackTrace) {
       _logger.error('${request.method.methodName} ${request.path} failed unexpectedly', error, stackTrace);
-      return const Failed(UnknownError());
+      return const Error(UnknownError());
     }
   }
 

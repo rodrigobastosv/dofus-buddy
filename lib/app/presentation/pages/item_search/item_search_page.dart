@@ -1,5 +1,4 @@
 import 'package:dofus_buddy/app/core/di/dependencies.dart';
-import 'package:dofus_buddy/app/core/error/error.dart';
 import 'package:dofus_buddy/app/design_system/components/general/db_empty_state.dart';
 import 'package:dofus_buddy/app/design_system/components/general/db_error_state.dart';
 import 'package:dofus_buddy/app/design_system/components/general/db_gap.dart';
@@ -38,11 +37,6 @@ class _ItemSearchViewState extends State<_ItemSearchView> {
     super.dispose();
   }
 
-  String _failureMessage(AppLocalizations l10n, DBError? failure) => switch (failure) {
-    NetworkError() => l10n.errorNetworkMessage,
-    _ => l10n.errorGenericMessage,
-  };
-
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -64,7 +58,7 @@ class _ItemSearchViewState extends State<_ItemSearchView> {
                     message: l10n.itemSearchInitialMessage,
                   ),
                   .loading => const DBLoadingIndicator(),
-                  .failure => DBErrorState(message: _failureMessage(l10n, state.failure), onRetry: () => cubit.search(_controller.text)),
+                  .failure => DBErrorState(message: l10n.errorGenericMessage, onRetry: () => cubit.search(_controller.text)),
                   .success when state.items.isEmpty => DBEmptyState(title: l10n.itemSearchEmptyTitle, message: l10n.itemSearchEmptyMessage),
                   .success => ListView.separated(
                     itemCount: state.items.length,
