@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter test *)",
+      "Read(//Users/rodrigobvasc/Documents/mobile-app/**)",
+      "Bash(flutter gen-l10n *)",
+      "Bash(sed -i '' 's/MainAxisSize\\\\.min/.min/' lib/app/design_system/components/buttons/db_primary_button.dart)",
+      "Bash(sed -i '' -e 's/Brightness\\\\.light/.light/' -e 's/Brightness\\\\.dark/.dark/' -e 's/FontWeight\\\\.w700/.w700/g' -e 's/FontWeight\\\\.w600/.w600/g' -e 's/FontWeight\\\\.w500/.w500/g' lib/app/design_system/themes/db_theme.dart)",
+      "Bash(flutter devices *)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(xcrun simctl *)",
+      "Bash(flutter run *)",
+      "Bash(tee /tmp/flutter_run.log)",
+      "Bash(echo \"Started with PID $!\")",
+      "Bash(sleep 5; cat /tmp/flutter_run.log 2>&1 | tail -60)",
+      "Read(//private/tmp/**)",
+      "Bash(sed -i '' 's/navItemsLabel/itemsFeatureTitle/g' lib/app/presentation/pages/item_search/item_search_page.dart)",
+      "Bash(sed -i '' 's/navRecipesLabel/recipesFeatureTitle/g' lib/app/presentation/pages/recipes/recipes_page.dart)",
+      "Bash(sed -i '' 's/navSetsLabel/setsFeatureTitle/g' lib/app/presentation/pages/sets/sets_page.dart)",
+      "Bash(dart format *)",
+      "Bash(sed -i '' 's/Result<Error,/Result<DBError,/' lib/app/data/items/datasources/items_remote_datasource.dart lib/app/domain/items/use_cases/search_items_use_case.dart lib/app/data/items/items_repository.dart)",
+      "Bash(sed -i '' 's/final Error? failure/final DBError? failure/; s/List<Item>? items, Error? failure/List<Item>? items, DBError? failure/' lib/app/presentation/pages/item_search/cubit/item_search_state.dart)",
+      "Bash(sed -i '' 's/AppLocalizations l10n, Error? failure/AppLocalizations l10n, DBError? failure/' lib/app/presentation/pages/item_search/item_search_page.dart)",
+      "Bash(git add *)"
+    ]
+  }
+}

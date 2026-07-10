@@ -1,0 +1,38 @@
+{
+  "@@locale": "en",
+  "appTitle": "Dofus Buddy",
+  "homeTagline": "An unofficial companion for Dofus players.",
+  "homeAttribution": "Data provided by the public dofusdu.de API. This app has no official affiliation with Ankama.",
+  "itemsFeatureTitle": "Items",
+  "itemsFeatureSubtitle": "Search items, weapons and equipment",
+  "recipesFeatureTitle": "Recipes",
+  "recipesFeatureSubtitle": "Discover crafting recipes",
+  "setsFeatureTitle": "Sets",
+  "setsFeatureSubtitle": "Build the best equipment sets",
+  "settingsTitle": "Settings",
+  "settingsLanguageLabel": "Language",
+  "languageSystemDefault": "System default",
+  "languageEnglish": "English",
+  "languagePortuguese": "Portuguese",
+  "languageFrench": "French",
+  "itemSearchHint": "Search item, e.g. Atcham",
+  "itemSearchInitialTitle": "Find your items",
+  "itemSearchInitialMessage": "Type the name of a Dofus item to start searching.",
+  "itemSearchEmptyTitle": "No items found",
+  "itemSearchEmptyMessage": "Try searching with a different term.",
+  "itemLevelLabel": "Level {level}",
+  "@itemLevelLabel": {
+    "description": "Shown next to an item's type in the search results list",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "retryButtonLabel": "Try again",
+  "errorNetworkMessage": "No internet connection.",
+  "errorGenericMessage": "Something went wrong. Please try again.",
+  "comingSoonTitle": "Coming soon",
+  "recipesComingSoonMessage": "Crafting recipe search is on its way.",
+  "setsComingSoonMessage": "Equipment set search is on its way."
+}
