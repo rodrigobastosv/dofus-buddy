@@ -16,13 +16,15 @@ class DofusBuddyApp extends StatelessWidget {
   const DofusBuddyApp({super.key});
 
   @override
-  Widget build(BuildContext context) => BlocProvider.value(
+  Widget build(BuildContext context) => BlocProvider<AppCubit>.value(
     value: G<AppCubit>(),
     child: BlocBuilder<AppCubit, AppState>(
       builder: (context, state) => MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
         theme: DBTheme.light,
         darkTheme: DBTheme.dark,
+        themeMode: state.themeMode,
         locale: state.locale,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,

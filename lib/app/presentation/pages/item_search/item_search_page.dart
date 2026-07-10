@@ -18,7 +18,8 @@ class ItemSearchPage extends StatelessWidget {
   const ItemSearchPage({super.key});
 
   @override
-  Widget build(BuildContext context) => BlocProvider(create: (context) => ItemSearchCubit(G()), child: const _ItemSearchView());
+  Widget build(BuildContext context) =>
+      BlocProvider<ItemSearchCubit>(create: (context) => ItemSearchCubit(G()), child: const _ItemSearchView());
 }
 
 class _ItemSearchView extends StatefulWidget {

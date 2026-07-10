@@ -55,6 +55,18 @@ class AppLocalizationsFr extends AppLocalizations {
   String get languageFrench => 'Français';
 
   @override
+  String get settingsThemeLabel => 'Thème';
+
+  @override
+  String get themeSystemDefault => 'Système par défaut';
+
+  @override
+  String get themeLight => 'Clair';
+
+  @override
+  String get themeDark => 'Sombre';
+
+  @override
   String get itemSearchHint => 'Rechercher un objet, ex : Atcham';
 
   @override

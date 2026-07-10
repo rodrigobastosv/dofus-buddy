@@ -33,7 +33,7 @@ class SearchItemsUseCase {
 
 ## Networking
 
-Endpoints are request objects, not inline `dio` calls. `DBBaseHttpRequest` (`lib/app/core/http/db_base_http_request.dart`) declares `path`, `method`, `body`, `queryParameters`, `headers`; `DBHttpRequest` (`db_http_request.dart`) gives them all empty/null defaults so a concrete request only overrides what it needs. Each endpoint gets its own class next to the datasource that uses it, e.g. `lib/app/data/items/datasources/requests/search_items_request.dart`:
+Endpoints are request objects, not inline `dio` calls. `DBBaseHttpRequest` (`lib/app/core/http/db_base_http_request.dart`) declares `path`, `method`, `body`, `queryParameters`, `headers`. `DBHttpRequest` (`db_http_request.dart`) implements the boilerplate: `body`/`queryParameters`/`headers` default to empty, and `path` is derived from an abstract `endpoint` getter as `'${Env.game}/v1/${Env.defaultLanguage}/$endpoint'` — the game/language URL prefix lives in exactly one place. A concrete request only supplies `endpoint` (not `path`) plus whatever else it needs. Each endpoint gets its own class next to the datasource that uses it, e.g. `lib/app/data/items/datasources/requests/search_items_request.dart`:
 
 ```dart
 class SearchItemsRequest extends DBHttpRequest {
@@ -42,7 +42,7 @@ class SearchItemsRequest extends DBHttpRequest {
   final int limit;
 
   @override
-  String get path => '/${Env.game}/v1/${Env.defaultLanguage}/items/search';
+  String get endpoint => 'items/search';
   @override
   HttpMethod get method => .get;
   @override

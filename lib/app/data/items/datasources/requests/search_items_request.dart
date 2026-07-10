@@ -1,4 +1,3 @@
-import 'package:dofus_buddy/app/core/env/env.dart';
 import 'package:dofus_buddy/app/core/http/db_http_request.dart';
 import 'package:dofus_buddy/app/core/http/enums/http_method.dart';
 
@@ -9,7 +8,7 @@ class SearchItemsRequest extends DBHttpRequest {
   final int limit;
 
   @override
-  String get path => '/${Env.game}/v1/${Env.defaultLanguage}/items/search';
+  String get endpoint => 'items/search';
 
   @override
   HttpMethod get method => .get;

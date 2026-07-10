@@ -22,7 +22,9 @@
       "Bash(sed -i '' 's/Result<Error,/Result<DBError,/' lib/app/data/items/datasources/items_remote_datasource.dart lib/app/domain/items/use_cases/search_items_use_case.dart lib/app/data/items/items_repository.dart)",
       "Bash(sed -i '' 's/final Error? failure/final DBError? failure/; s/List<Item>? items, Error? failure/List<Item>? items, DBError? failure/' lib/app/presentation/pages/item_search/cubit/item_search_state.dart)",
       "Bash(sed -i '' 's/AppLocalizations l10n, Error? failure/AppLocalizations l10n, DBError? failure/' lib/app/presentation/pages/item_search/item_search_page.dart)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git push *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }

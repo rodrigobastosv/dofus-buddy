@@ -183,6 +183,30 @@ abstract class AppLocalizations {
   /// **'French'**
   String get languageFrench;
 
+  /// No description provided for @settingsThemeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Theme'**
+  String get settingsThemeLabel;
+
+  /// No description provided for @themeSystemDefault.
+  ///
+  /// In en, this message translates to:
+  /// **'System default'**
+  String get themeSystemDefault;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
   /// No description provided for @itemSearchHint.
   ///
   /// In en, this message translates to:
